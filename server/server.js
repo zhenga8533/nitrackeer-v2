@@ -19,7 +19,10 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/', express.static(path.join(__dirname, "public")));
+
+// Add paths
 app.use('/', require("./routes/root"));
+app.use("/users", require("./routes/userRoutes"));
 
 // Covers 404 errors
 app.all('*', (req, res) => {
