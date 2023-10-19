@@ -1,7 +1,8 @@
 const allowedOrigins = [
-    "https://localhost:3000",
-    "https://www.nitrackeer.onrender.com",
-    "https://nitrackeer.onrender.com"
+    'https://www.nitrackeer-api.onrender.com',
+    'https://nitrackeer-api.onrender.com',
+    'https://www.nitrackeer.onrender.com',
+    'https://nitrackeer.onrender.com'
 ];
 
 module.exports = { allowedOrigins };

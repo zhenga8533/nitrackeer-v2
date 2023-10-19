@@ -1,9 +1,9 @@
-const router = require("express").Router();
-const { User } = require("../models/User");
-const bcrypt = require("bcrypt");
-const Joi = require("joi");
+const router = require('express').Router();
+const { User } = require('../models/User');
+const bcrypt = require('bcrypt');
+const Joi = require('joi');
 
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
 	try {
 		const { error } = validate(req.body);
 		if (error)
@@ -11,28 +11,28 @@ router.post("/", async (req, res) => {
 
 		const user = await User.findOne({ email: req.body.email });
 		if (!user)
-			return res.status(401).send({ message: "Invalid Email or Password" });
+			return res.status(401).send({ message: 'Invalid Email or Password' });
 
 		const validPassword = await bcrypt.compare(
 			req.body.password,
 			user.password
 		);
 		if (!validPassword)
-			return res.status(401).send({ message: "Invalid Email or Password" });
+			return res.status(401).send({ message: 'Invalid Email or Password' });
 
 		res.status(200).send({ data: {
             token: user.generateAuthToken(),
             username: user.username
-        }, message: "logged in successfully" });
+        }, message: 'logged in successfully' });
 	} catch (error) {
-		res.status(500).send({ message: "Internal Server Error" });
+		res.status(500).send({ message: 'Internal Server Error' });
 	}
 });
 
 const validate = (data) => {
 	const schema = Joi.object({
-		email: Joi.string().email().required().label("Email"),
-		password: Joi.string().required().label("Password"),
+		email: Joi.string().email().required().label('Email'),
+		password: Joi.string().required().label('Password'),
 	});
 	return schema.validate(data);
 };
