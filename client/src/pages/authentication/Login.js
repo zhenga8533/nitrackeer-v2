@@ -19,7 +19,7 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = 'https://nitrackeer-api/auth/login';
+			const url = 'https://nitrackeer-api.onrender.com/auth/login';
 			const { data: res } = await axios.post(url, data);
 
 			localStorage.setItem('token', res.data.token);
