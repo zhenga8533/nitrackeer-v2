@@ -10,8 +10,12 @@ import Auction from './pages/economy/Auction';
 import Bazaar from './pages/economy/Bazaar';
 import Product from './pages/economy/Product';
 import { Player } from './pages/Player';
+import { toProperCase } from './components/functions';
 
-function App() {
+const App = () => {
+    const section = toProperCase(window.location.pathname.replace(/^\/([^\/]*).*$/, '$1'));
+    document.title = `${section + (section ? ' - ' : '')}Nitrackeer`
+
     return (
         <Routes>
             <Route path='/' element={<Layout />}>
