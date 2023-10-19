@@ -2,7 +2,7 @@ import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import toast from 'react-hot-toast';
 
-export const Logout = () => {
+const Logout = () => {
     const [_, setCookies] = useCookies(["access_token"]);
     const navigate = useNavigate();
     
@@ -25,3 +25,5 @@ export const Logout = () => {
             </form>
         </div>);
 };
+
+export default Logout;

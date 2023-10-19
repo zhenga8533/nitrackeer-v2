@@ -2,14 +2,14 @@ import './style.css';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from './pages/Layout';
 import { Home } from './pages/Home';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Register from './pages/authentication/Register';
+import Login from './pages/authentication/Login';
+import Logout from './pages/authentication/Logout';
 import { Dashboard } from './pages/Dashboard';
 import { Player } from './pages/Player';
 import { Auction } from './pages/Auction';
 import { Bazaar } from './pages/Bazaar';
 import { Product } from './pages/Product';
-import { Logout } from './pages/Logout';
 
 function App() {
     return (

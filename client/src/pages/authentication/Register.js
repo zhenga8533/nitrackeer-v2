@@ -30,9 +30,9 @@ const Register = () => {
     };
 
     return (
-        <div className={styles.signup_container}>
-            <div className={styles.signup_form_container}>
-                <div className={styles.left}>
+        <div className={styles.auth_container}>
+            <div className={styles.auth_form_container}>
+                <div className={styles.register_left}>
                     <h1>Existing User?</h1>
                     <Link to="/login">
                         <button type="button" className={styles.white_btn}>
@@ -40,7 +40,7 @@ const Register = () => {
                         </button>
                     </Link>
                 </div>
-                <div className={styles.right}>
+                <div className={styles.register_right}>
                     <form className={styles.form_container} onSubmit={handleSubmit}>
                         <h1>Create Account</h1>
                         <input
