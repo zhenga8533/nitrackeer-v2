@@ -20,9 +20,9 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/', express.static(path.join(__dirname, "public")));
 
-// Add paths
-app.use('/', require("./routes/root"));
-app.use("/users", require("./routes/userRoutes"));
+// Add routes
+app.use("/auth/register", require("./routes/register"));
+app.use("/auth/login", require("./routes/login"));
 
 // Covers 404 errors
 app.all('*', (req, res) => {
@@ -37,13 +37,10 @@ app.all('*', (req, res) => {
 
 app.use(errorHandler);
 
-mongoose.connection.once("open", () => {
-    console.log("Connected to MongoDB");
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-});
-
 mongoose.connection.on('error', err => {
     console.error(err);
     logEvents(`${err.no}: ${err.code}\t${err.syscall}\t${err.hostname}`, "mongoErrLog.log");
 });
 
+// Confirmation message
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

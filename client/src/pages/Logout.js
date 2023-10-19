@@ -7,9 +7,10 @@ export const Logout = () => {
     
     const logout = () => {
         setCookies("access_token", "");
-        window.localStorage.removeItem("userID");
+        window.localStorage.removeItem("token");
         window.localStorage.removeItem("username");
         navigate("/login");
+        window.location.reload(false);
     }
 
     return (
