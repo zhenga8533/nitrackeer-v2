@@ -1,16 +1,17 @@
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import toast from 'react-hot-toast';
 
 export const Logout = () => {
     const [_, setCookies] = useCookies(["access_token"]);
     const navigate = useNavigate();
     
     const logout = () => {
-        setCookies("access_token", "");
+        setCookies("username", "");
         window.localStorage.removeItem("token");
-        window.localStorage.removeItem("username");
+        
+        toast.success('Successfully signed out!');
         navigate("/login");
-        window.location.reload(false);
     }
 
     return (

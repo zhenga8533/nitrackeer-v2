@@ -1,4 +1,8 @@
+import { useCookies } from "react-cookie";
+
 export const Navbar = () => {
+    const [cookies] = useCookies(["username"]);
+    
     return (<nav className = "nav">
         <a href="/" className="site-title">Nitrackeer</a>
         <ul>
@@ -13,9 +17,9 @@ export const Navbar = () => {
             </li>
             <li>
                 {
-                    !localStorage.username ?
+                    !cookies.username ?
                     <a href="/login">Login</a> :
-                    <a href="/logout">{ localStorage.username }</a>
+                    <a href="/logout">{ cookies.username }</a>
                 }
             </li>
         </ul>

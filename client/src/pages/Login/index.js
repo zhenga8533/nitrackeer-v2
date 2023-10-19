@@ -2,9 +2,12 @@ import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
+import toast from 'react-hot-toast';
+import { useCookies } from "react-cookie";
 
 const Login = () => {
     const navigate = useNavigate();
+    const [_, setCookies] = useCookies(["access_token"]);
 
 	const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
@@ -18,10 +21,12 @@ const Login = () => {
 		try {
 			const url = "http://localhost:3500/auth/login";
 			const { data: res } = await axios.post(url, data);
+
 			localStorage.setItem("token", res.data.token);
-			localStorage.setItem("username", res.data.username);
+            setCookies("username", res.data.username);
+
+            toast.success(`Successfully signed in as ${res.data.username}!`);
 			navigate("/");
-            window.location.reload(false);
 		} catch (error) {
 			if (
 				error.response &&
