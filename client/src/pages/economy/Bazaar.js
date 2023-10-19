@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { toProperCase, nFormatter, imageOnError } from '../../util/functions';
+import { toProperCase, nFormatter, imageOnError } from '../../components/functions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faList, faGrip, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { Loading } from '../Loading';

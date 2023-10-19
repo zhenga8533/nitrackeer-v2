@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { toIdCase, imageOnError } from '../util/functions';
+import { toIdCase, imageOnError } from '../components/functions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faList, faGrip, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { TopButton } from '../components/topButton';
